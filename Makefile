@@ -223,7 +223,7 @@ DEPENDS := $(OFILES:.o=.d) $(TEST_OFILES:.o=.d)
 # Targets
 .PHONY: ctags
 
-all: $(OUTPUTDIR)/tags $(OUTPUT).bin \
+all: $(OUTPUT).bin \
 	$(NAME).objdump $(OUTPUT)_test
 
 ctags: $(OUTPUTDIR)/tags
