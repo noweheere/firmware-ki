@@ -1,51 +1,51 @@
+[English](DESIGNER_README.md) | [Deutsch](DESIGNER_README.de.md) | [Español](DESIGNER_README.es.md) | [Français](DESIGNER_README.fr.md) | [Русский](DESIGNER_README.ru.md) | [中文](DESIGNER_README.zh.md)
+
+---
+
 # Kiwiki Firmware Designer
 
-Dieses Tool bietet eine grafische Benutzeroberfläche (GUI), um die Kiwiki-Firmware einfach zu konfigurieren und zu kompilieren.
+This tool provides a graphical user interface (GUI) to easily configure and compile the Kiwiki firmware.
 
-## Anleitung für Windows 10/11
+## Instructions for Windows 10/11
 
-Um dieses Tool unter Windows zu verwenden, müssen einige Voraussetzungen erfüllt sein.
+To use this tool on Windows, a few prerequisites must be met.
 
-### 1. Voraussetzungen installieren
+### 1. Install Prerequisites
 
 #### a) Python 3
-Das Tool selbst ist ein Python-Skript.
-1.  Laden Sie den Python-Installer von der offiziellen Webseite herunter: [python.org](https://www.python.org/downloads/windows/)
-2.  Führen Sie den Installer aus. **Wichtig:** Setzen Sie im ersten Dialog des Installers den Haken bei **"Add Python to PATH"**. Dies ist entscheidend, damit Sie Python einfach von der Kommandozeile aus aufrufen können.
-3.  Folgen Sie den weiteren Anweisungen des Installers.
+The tool itself is a Python script.
+1.  Download the Python installer from the official website: [python.org](https://www.python.org/downloads/windows/)
+2.  Run the installer. **Important:** In the first dialog of the installer, check the box for **"Add Python to PATH"**. This is crucial so you can easily call Python from the command line.
+3.  Follow the rest of the installer's instructions.
 
 #### b) GNU Arm Embedded Toolchain (`arm-none-eabi-gcc`)
-Dies ist der Compiler, der den C-Code der Firmware in eine lauffähige Datei für den Mikrocontroller übersetzt.
-1.  Laden Sie die Toolchain von der Arm-Webseite herunter. Suchen Sie nach der neuesten "Windows x86_64 hosted cross toolchain" (als `.zip`-Datei): [Arm GNU Toolchain Downloads](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
-2.  Entpacken Sie die `.zip`-Datei in ein Verzeichnis Ihrer Wahl, z.B. `C:\Program Files\arm-gnu-toolchain`.
-3.  Fügen Sie das `bin`-Verzeichnis der Toolchain zu Ihrem System-PATH hinzu:
-    *   Suchen Sie im Windows-Startmenü nach "Umgebungsvariablen für dieses Konto bearbeiten".
-    *   Wählen Sie in der oberen Liste die Variable `Path` aus und klicken Sie auf "Bearbeiten".
-    *   Klicken Sie auf "Neu" und fügen Sie den Pfad zum `bin`-Verzeichnis hinzu, z.B. `C:\Program Files\arm-gnu-toolchain\bin`.
-    *   Bestätigen Sie alle Fenster mit "OK".
+This is the compiler that translates the firmware's C code into an executable file for the microcontroller.
+1.  Download the toolchain from the Arm website. Look for the latest "Windows x86_64 hosted cross toolchain" (as a `.zip` file): [Arm GNU Toolchain Downloads](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm/downloads)
+2.  Unzip the `.zip` file to a directory of your choice, e.g., `C:\Program Files\arm-gnu-toolchain`.
+3.  Add the toolchain's `bin` directory to your system PATH. In the Windows Start Menu, search for "Edit the system environment variables", click "Environment Variables...", select `Path` from the "System variables" section, click "Edit...", click "New" and add the path, e.g., `C:\Program Files\arm-gnu-toolchain\bin`. Confirm all windows with "OK".
 
 #### c) Make
-`make` ist ein Werkzeug, das den Kompilierungsprozess steuert.
-Der einfachste Weg, `make` unter Windows zu installieren, ist über den Paketmanager [Chocolatey](https://chocolatey.org/).
-1.  Falls Sie Chocolatey noch nicht haben, installieren Sie es, indem Sie den Anweisungen auf der Webseite folgen (normalerweise ein Befehl, den man in einer PowerShell mit Administratorrechten ausführt).
-2.  Öffnen Sie eine PowerShell als Administrator und führen Sie folgenden Befehl aus:
+`make` is a tool that controls the compilation process.
+The easiest way to install `make` on Windows is via the [Chocolatey](https://chocolatey.org/) package manager.
+1.  If you don't already have Chocolatey, install it by following the instructions on the website (usually a command run in an administrative PowerShell).
+2.  Open a PowerShell as Administrator and run the following command:
     ```sh
     choco install make
     ```
-    Alternativ können Sie `make` auch als Teil von [Git for Windows](https://git-scm.com/download/win) oder [MSYS2](https://www.msys2.org/) installieren.
+    Alternatively, you can install `make` as part of [Git for Windows](https://git-scm.com/download/win) or [MSYS2](https://www.msys2.org/).
 
-### 2. Tool starten
+### 2. Launch the Tool
 
-Wenn alle Voraussetzungen installiert sind, können Sie den Firmware Designer starten:
+Once all prerequisites are installed, you can start the Firmware Designer:
 
-1.  Öffnen Sie eine Kommandozeile (`cmd.exe`) oder eine PowerShell.
-2.  Navigieren Sie mit `cd` in das Verzeichnis dieses Projekts.
+1.  Open a Command Prompt (`cmd.exe`) or PowerShell.
+2.  Navigate to this project's directory using `cd`.
     ```sh
-    cd Pfad\zum\Projekt
+    cd path\to\project
     ```
-3.  Führen Sie das Python-Skript aus:
+3.  Run the Python script:
     ```sh
     python designer.py
     ```
 
-Das Fenster des "Kiwiki Firmware Designer" sollte sich nun öffnen. Das Tool prüft beim Start selbst, ob `make` und `arm-none-eabi-gcc` gefunden werden können und zeigt den Status an.
+The "Kiwiki Firmware Designer" window should now open. The tool checks on startup whether `make` and `arm-none-eabi-gcc` can be found and displays their status.
